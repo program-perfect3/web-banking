@@ -11,7 +11,7 @@ export function Topbar() {
         <span className="flex h-7 w-7 items-center justify-center border-2 border-foreground bg-primary text-primary-foreground">
           <BrandMark className="h-4 w-4" />
         </span>
-        <span className="font-pixel text-xs tracking-tight">VOXEL</span>
+        <span className="font-pixel text-xs tracking-tight">BLOK</span>
       </div>
 
       <div className="relative ml-auto hidden w-full max-w-sm md:block">

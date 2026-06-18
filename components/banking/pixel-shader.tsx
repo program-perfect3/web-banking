@@ -5,7 +5,7 @@ import { useEffect, useRef } from "react"
 /**
  * Animated pixel-art gradient rendered with a WebGL fragment shader.
  * The gradient is quantized into chunky pixel blocks and ordered-dithered
- * (Bayer 4x4) to give it an authentic 8-bit look. Brand emerald -> teal.
+ * (Bayer 4x4) to give it an authentic 8-bit look. Brand amber -> orange -> gold.
  */
 const FRAG = `
 precision highp float;
@@ -37,10 +37,10 @@ void main() {
   float g = sin((uv.x + uv.y) * 3.0 + t) * 0.5 + 0.5;
   g = mix(g, uv.x * 0.6 + (1.0 - uv.y) * 0.6, 0.45);
 
-  // brand palette: emerald -> teal -> light mint
-  vec3 c1 = vec3(0.07, 0.62, 0.40); // deep emerald
-  vec3 c2 = vec3(0.13, 0.80, 0.66); // teal
-  vec3 c3 = vec3(0.55, 0.95, 0.78); // mint highlight
+  // brand palette: deep amber -> orange -> light gold
+  vec3 c1 = vec3(0.85, 0.45, 0.07); // deep amber
+  vec3 c2 = vec3(0.97, 0.68, 0.18); // orange-gold
+  vec3 c3 = vec3(1.00, 0.87, 0.52); // light gold highlight
   vec3 col = mix(c1, c2, smoothstep(0.0, 0.6, g));
   col = mix(col, c3, smoothstep(0.6, 1.0, g));
 

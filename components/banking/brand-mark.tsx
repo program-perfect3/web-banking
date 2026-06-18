@@ -1,15 +1,20 @@
 import { cn } from "@/lib/utils"
 
-// Pixel-art "V" mark for VOXEL, built from a 7x7 grid of square pixels.
+// Pixel-art "B" mark for BLOK, built from a 7x7 grid of square pixels.
 // Uses currentColor so it adapts to any background (cards, sidebar, etc).
 const PIXELS: Array<[number, number]> = [
-  [0, 0], [6, 0],
-  [0, 1], [6, 1],
-  [1, 2], [5, 2],
-  [1, 3], [5, 3],
-  [2, 4], [4, 4],
-  [2, 5], [4, 5],
-  [3, 6],
+  // left spine
+  [0, 0], [0, 1], [0, 2], [0, 3], [0, 4], [0, 5], [0, 6],
+  // top bar
+  [1, 0], [2, 0], [3, 0], [4, 0],
+  // top bowl edge
+  [5, 1], [5, 2],
+  // middle bar
+  [1, 3], [2, 3], [3, 3], [4, 3],
+  // bottom bowl edge
+  [5, 4], [5, 5],
+  // bottom bar
+  [1, 6], [2, 6], [3, 6], [4, 6],
 ]
 
 export function BrandMark({ className }: { className?: string }) {
@@ -18,7 +23,7 @@ export function BrandMark({ className }: { className?: string }) {
       viewBox="0 0 7 7"
       className={cn("h-7 w-7", className)}
       role="img"
-      aria-label="VOXEL logo"
+      aria-label="BLOK logo"
       shapeRendering="crispEdges"
       fill="currentColor"
     >

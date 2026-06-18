@@ -15,8 +15,8 @@ const pressStart = Press_Start_2P({
 })
 
 export const metadata: Metadata = {
-  title: 'VOXEL — Pixel Banking',
-  description: 'A pixel-art web bank. Manage balances, cards, payments and VOXEL chain assets.',
+  title: 'BLOK — Pixel Banking',
+  description: 'A pixel-art web bank. Manage balances, cards, payments and BLOK chain assets.',
   generator: 'v0.app',
   icons: {
     icon: [
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   colorScheme: 'light',
-  themeColor: '#ffffff',
+  themeColor: '#fbf7ef',
 }
 
 export default function RootLayout({

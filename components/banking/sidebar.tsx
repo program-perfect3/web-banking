@@ -18,7 +18,7 @@ const nav = [
   { id: "home", label: "Dashboard", icon: LayoutDashboard },
   { id: "cards", label: "Cards", icon: CreditCard },
   { id: "transfer", label: "Payments", icon: ArrowLeftRight },
-  { id: "crypto", label: "VOXEL Wallet", icon: Wallet },
+  { id: "crypto", label: "BLOK Wallet", icon: Wallet },
   { id: "savings", label: "Savings", icon: PiggyBank },
   { id: "bills", label: "Bills", icon: Receipt },
 ]
@@ -32,7 +32,7 @@ export function Sidebar() {
         <span className="flex h-9 w-9 items-center justify-center border-2 border-foreground bg-primary text-primary-foreground pixel-shadow-sm">
           <BrandMark className="h-5 w-5" />
         </span>
-        <span className="font-pixel text-sm tracking-tight text-foreground">VOXEL</span>
+        <span className="font-pixel text-sm tracking-tight text-foreground">BLOK</span>
       </div>
 
       <nav className="mt-7 flex flex-col gap-1.5">
@@ -72,7 +72,7 @@ export function Sidebar() {
         <div className="mt-3 border-2 border-foreground bg-accent p-4 pixel-shadow">
           <p className="font-pixel text-[10px] uppercase leading-relaxed text-accent-foreground">Earn 4.6% APY</p>
           <p className="mt-2 text-xs leading-relaxed text-accent-foreground/80">
-            Stake your VOXL directly from your wallet and grow your balance.
+            Stake your BLOK directly from your wallet and grow your balance.
           </p>
           <button className="pixel-btn mt-3 w-full bg-primary px-3 py-2 font-pixel text-[9px] uppercase text-primary-foreground">
             Start staking

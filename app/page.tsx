@@ -22,7 +22,7 @@ export default function Page() {
               Welcome back, Alex
             </h1>
             <p className="mt-1 text-sm text-muted-foreground">
-              Here&apos;s an overview of your money across accounts and TON.
+              Here&apos;s an overview of your money across accounts and the BLOK chain.
             </p>
           </div>
 
