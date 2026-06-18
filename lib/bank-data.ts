@@ -49,13 +49,13 @@ export type Contact = {
 export const accounts: Account[] = [
   { id: "main", name: "Main account", type: "Checking", number: "**** 4921", balance: 18420.55, currency: "USD", delta: 4.2 },
   { id: "save", name: "Savings vault", type: "Savings", number: "**** 7730", balance: 52800.0, currency: "USD", delta: 1.8 },
-  { id: "voxel", name: "VOXEL wallet", type: "Crypto", number: "VX...8f2c", balance: 9314.27, currency: "USD", delta: 12.6 },
+  { id: "blok", name: "BLOK wallet", type: "Crypto", number: "BK...8f2c", balance: 9314.27, currency: "USD", delta: 12.6 },
 ]
 
 export const totalBalance = accounts.reduce((s, a) => s + a.balance, 0)
 
 export const cards: CardItem[] = [
-  { id: "c1", label: "VOXEL Metal", holder: "ALEX MORGAN", last4: "4921", expiry: "08/28", network: "Visa", variant: "brand", balance: 18420.55, frozen: false },
+  { id: "c1", label: "BLOK Metal", holder: "ALEX MORGAN", last4: "4921", expiry: "08/28", network: "Visa", variant: "brand", balance: 18420.55, frozen: false },
   { id: "c2", label: "Everyday", holder: "ALEX MORGAN", last4: "1180", expiry: "03/27", network: "Mastercard", variant: "ink", balance: 2140.1, frozen: false },
   { id: "c3", label: "Travel", holder: "ALEX MORGAN", last4: "5562", expiry: "11/26", network: "Visa", variant: "ghost", balance: 760.42, frozen: true },
 ]
@@ -66,14 +66,14 @@ export const transactions: Tx[] = [
   { id: "t3", merchant: "Spotify", category: "Subscription", date: "Yesterday", amount: -10.99, status: "completed", initials: "SP" },
   { id: "t4", merchant: "Maria Lopez", category: "Transfer", date: "Yesterday", amount: -250.0, status: "pending", initials: "ML" },
   { id: "t5", merchant: "Whole Foods", category: "Groceries", date: "Jun 16", amount: -86.43, status: "completed", initials: "WF" },
-  { id: "t6", merchant: "VOXEL Staking reward", category: "Crypto", date: "Jun 15", amount: 42.18, status: "completed", initials: "VX" },
+  { id: "t6", merchant: "BLOK Staking reward", category: "Crypto", date: "Jun 15", amount: 42.18, status: "completed", initials: "BK" },
   { id: "t7", merchant: "Uber", category: "Transport", date: "Jun 15", amount: -23.7, status: "completed", initials: "UB" },
   { id: "t8", merchant: "Booking.com", category: "Travel", date: "Jun 14", amount: -540.0, status: "completed", initials: "BK" },
 ]
 
 export const cryptoAssets: CryptoAsset[] = [
-  { id: "voxl", name: "Voxel", symbol: "VOXL", amount: 1240.5, priceUsd: 5.42, change24h: 6.4 },
-  { id: "pixl", name: "Pixel", symbol: "PIXL", amount: 38200, priceUsd: 0.061, change24h: 12.9 },
+  { id: "blok", name: "Blok", symbol: "BLOK", amount: 1240.5, priceUsd: 5.42, change24h: 6.4 },
+  { id: "byte", name: "Byte", symbol: "BYTE", amount: 38200, priceUsd: 0.061, change24h: 12.9 },
   { id: "usdt", name: "Tether", symbol: "USDT", amount: 2500, priceUsd: 1.0, change24h: 0.01 },
 ]
 

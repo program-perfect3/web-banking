@@ -1,8 +1,9 @@
 "use client"
 
 import { useState } from "react"
-import { transactions, formatUsd } from "@/lib/bank-data"
+import { transactions } from "@/lib/bank-data"
 import { cn } from "@/lib/utils"
+import { AnimatedAmount } from "./animated-amount"
 
 const filters = ["All", "Income", "Expenses"] as const
 
@@ -16,17 +17,19 @@ export function TransactionsList() {
   })
 
   return (
-    <section className="rounded-3xl border border-border bg-card p-5 shadow-sm md:p-6">
+    <section className="pixel-card animate-pixel-rise p-5 md:p-6">
       <div className="flex flex-wrap items-center justify-between gap-3">
-        <h2 className="text-base font-semibold text-foreground">Transactions</h2>
-        <div className="flex items-center gap-1 rounded-xl bg-secondary p-1">
+        <h2 className="font-pixel text-[11px] uppercase tracking-wide text-foreground">Transactions</h2>
+        <div className="flex items-center gap-1 border-2 border-foreground bg-secondary p-1">
           {filters.map((f) => (
             <button
               key={f}
               onClick={() => setFilter(f)}
               className={cn(
-                "rounded-lg px-3 py-1.5 text-xs font-semibold transition-colors",
-                filter === f ? "bg-card text-foreground shadow-sm" : "text-muted-foreground hover:text-foreground",
+                "px-3 py-1.5 font-pixel text-[8px] uppercase transition-colors",
+                filter === f
+                  ? "bg-primary text-primary-foreground"
+                  : "text-muted-foreground hover:text-foreground",
               )}
             >
               {f}
@@ -35,39 +38,40 @@ export function TransactionsList() {
         </div>
       </div>
 
-      <ul className="mt-4 flex flex-col">
-        {visible.map((t) => {
+      <ul className="mt-4 flex flex-col gap-2">
+        {visible.map((t, i) => {
           const incoming = t.amount > 0
           return (
             <li
               key={t.id}
-              className="flex items-center gap-3 border-b border-border py-3 last:border-0"
+              className="pixel-lift flex items-center gap-3 border-2 border-foreground bg-card px-3 py-2.5 animate-pixel-rise"
+              style={{ animationDelay: `${i * 40}ms` }}
             >
               <span
                 className={cn(
-                  "inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-xs font-semibold",
+                  "inline-flex h-10 w-10 shrink-0 items-center justify-center border-2 border-foreground font-pixel text-[8px]",
                   incoming ? "bg-accent text-accent-foreground" : "bg-secondary text-secondary-foreground",
                 )}
               >
                 {t.initials}
               </span>
               <div className="min-w-0 flex-1">
-                <p className="truncate text-sm font-medium text-foreground">{t.merchant}</p>
+                <p className="truncate text-sm font-semibold text-foreground">{t.merchant}</p>
                 <p className="text-xs text-muted-foreground">
                   {t.category} · {t.date}
                 </p>
               </div>
               <div className="text-right">
-                <p
+                <AnimatedAmount
+                  value={t.amount}
+                  sign
                   className={cn(
-                    "text-sm font-semibold tabular-nums",
+                    "block font-pixel text-[10px] tabular-nums",
                     incoming ? "text-success" : "text-foreground",
                   )}
-                >
-                  {formatUsd(t.amount, { sign: true })}
-                </p>
+                />
                 {t.status === "pending" && (
-                  <span className="text-[11px] font-medium text-muted-foreground">Pending</span>
+                  <span className="font-pixel text-[7px] uppercase text-muted-foreground">Pending</span>
                 )}
               </div>
             </li>

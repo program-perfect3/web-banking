@@ -52,40 +52,40 @@
 
 :root {
   color-scheme: light;
-  /* VOXEL — pixel-art neobank. Emerald/teal brand, ink black, square corners. */
-  --background: oklch(0.985 0.004 160);
-  --foreground: oklch(0.2 0.02 165);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.2 0.02 165);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.2 0.02 165);
-  --primary: oklch(0.74 0.17 158);
-  --primary-foreground: oklch(0.19 0.03 165);
-  --secondary: oklch(0.96 0.014 160);
-  --secondary-foreground: oklch(0.28 0.02 165);
-  --muted: oklch(0.96 0.01 160);
-  --muted-foreground: oklch(0.5 0.02 175);
-  --accent: oklch(0.92 0.07 158);
-  --accent-foreground: oklch(0.34 0.1 158);
+  /* BLOK — pixel-art neobank. Arcade amber/gold brand, warm ink, square corners. */
+  --background: oklch(0.98 0.008 85);
+  --foreground: oklch(0.2 0.025 60);
+  --card: oklch(0.995 0.004 85);
+  --card-foreground: oklch(0.2 0.025 60);
+  --popover: oklch(0.995 0.004 85);
+  --popover-foreground: oklch(0.2 0.025 60);
+  --primary: oklch(0.79 0.16 72);
+  --primary-foreground: oklch(0.22 0.04 60);
+  --secondary: oklch(0.955 0.014 85);
+  --secondary-foreground: oklch(0.3 0.025 60);
+  --muted: oklch(0.955 0.012 85);
+  --muted-foreground: oklch(0.5 0.025 65);
+  --accent: oklch(0.91 0.08 75);
+  --accent-foreground: oklch(0.36 0.1 65);
   --destructive: oklch(0.6 0.21 25);
   --success: oklch(0.64 0.16 152);
-  --border: oklch(0.86 0.012 160);
-  --input: oklch(0.2 0.02 165);
-  --ring: oklch(0.74 0.17 158);
-  --chart-1: oklch(0.74 0.17 158);
-  --chart-2: oklch(0.72 0.13 200);
-  --chart-3: oklch(0.8 0.17 130);
-  --chart-4: oklch(0.72 0.15 95);
-  --chart-5: oklch(0.45 0.03 200);
+  --border: oklch(0.85 0.015 75);
+  --input: oklch(0.2 0.025 60);
+  --ring: oklch(0.79 0.16 72);
+  --chart-1: oklch(0.79 0.16 72);
+  --chart-2: oklch(0.72 0.17 45);
+  --chart-3: oklch(0.85 0.16 95);
+  --chart-4: oklch(0.68 0.14 30);
+  --chart-5: oklch(0.45 0.03 70);
   --radius: 0rem;
-  --sidebar: oklch(1 0 0);
-  --sidebar-foreground: oklch(0.2 0.02 165);
-  --sidebar-primary: oklch(0.74 0.17 158);
-  --sidebar-primary-foreground: oklch(0.19 0.03 165);
-  --sidebar-accent: oklch(0.92 0.07 158);
-  --sidebar-accent-foreground: oklch(0.34 0.1 158);
-  --sidebar-border: oklch(0.86 0.012 160);
-  --sidebar-ring: oklch(0.74 0.17 158);
+  --sidebar: oklch(0.995 0.004 85);
+  --sidebar-foreground: oklch(0.2 0.025 60);
+  --sidebar-primary: oklch(0.79 0.16 72);
+  --sidebar-primary-foreground: oklch(0.22 0.04 60);
+  --sidebar-accent: oklch(0.91 0.08 75);
+  --sidebar-accent-foreground: oklch(0.36 0.1 65);
+  --sidebar-border: oklch(0.85 0.015 75);
+  --sidebar-ring: oklch(0.79 0.16 72);
 }
 
 .dark {
@@ -214,6 +214,17 @@
       linear-gradient(90deg, var(--border) 1px, transparent 1px);
     background-size: 8px 8px;
   }
+  /* Smooth hover lift toward the pixel offset-shadow */
+  .pixel-lift {
+    transition:
+      transform 0.18s cubic-bezier(0.2, 0.8, 0.2, 1),
+      box-shadow 0.18s cubic-bezier(0.2, 0.8, 0.2, 1),
+      background-color 0.2s ease;
+  }
+  .pixel-lift:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 7px 7px 0 0 var(--foreground);
+  }
 }
 
 @keyframes pixel-pop {
@@ -242,6 +253,21 @@
 }
 .animate-pixel-blink {
   animation: pixel-blink 1.2s steps(1, end) infinite;
+}
+
+/* Smooth staggered entrance for cards/rows */
+@keyframes pixel-rise {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-pixel-rise {
+  animation: pixel-rise 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) both;
 }
 
 @media (prefers-reduced-motion: reduce) {
